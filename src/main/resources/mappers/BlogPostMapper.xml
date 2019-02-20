@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.boilerPlate.app.Mapper.Blog.BlogPostMapper">
+        
+    <select id="selectBlogPostList" parameterType="com.boilerPlate.app.Vo.Bolg.BlogPost" resultType="com.boilerPlate.app.Vo.Bolg.BlogPost">
+        select 
+        	*
+        from blog_post
+    </select>
+    
+    
+    <insert id="insert" parameterType="com.boilerPlate.app.Vo.Bolg.BlogPost" >
+        INSERT INTO blog_post 
+        (title, article, title_clean, file, author_id, date_published, banner_image, featured, enabled, comments_enabled, views)
+        VALUES
+        (#{title}, #{article}, #{titleClean}, #{file}, #{authorId}, NOW(), #{bannerImage}, #{featured}, #{enabled}, #{commentsEnabled}, 0);
+    </insert>
+    
+    <delete id="delete" parameterType="com.boilerPlate.app.Vo.Bolg.BlogPost" >
+        DELETE FROM 
+        	blog_post 
+        WHERE ID = #{id}
+    </delete>
+    <!-- 
+    ﻿INSERT INTO blog_post (title, article, title_clean, file, author_id, date_published, banner_image, featured, enabled, comments_enabled, views) VALUES ('title 0001', 'article 0001', 'title_clean 0001', 'file 0001', 0001, NOW(), 'banner_image 0001', 0001, 0001, 0001, 0001);
+     -->
+    <!--
+     <select id="selectBlogPostById" parameterType="com.boilerPlate.app.Vo.Blog.BlogPost" resultType="com.boilerPlate.app.Vo.Blog.BlogPost">
+        select 
+        	*
+        from blog_post
+    </select>
+    
+    <delete id="deleteBlogPost" parameterType="com.boilerPlate.app.Vo.Bolg.BlogPost">
+        
+    </delete>
+    
+     <update id="updateBlogPost" parameterType="com.boilerPlate.app.Vo.Bolg.BlogPost">
+        
+    </update>
+    -->
+    
+</mapper>
